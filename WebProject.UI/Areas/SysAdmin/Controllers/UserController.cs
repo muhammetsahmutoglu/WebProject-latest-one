@@ -23,7 +23,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         }
         [HttpPost]
         public ActionResult Add(UserDTO userDTO,HttpPostedFileBase image)
-        {
+        {//
             User user = new User
             {
                 FirstName = userDTO.FirstName,
