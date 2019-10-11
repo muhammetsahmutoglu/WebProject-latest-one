@@ -65,5 +65,6 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             return Redirect("/SysAdmin/ProjectCategory/List");
 
         }
+      
     }
 }

@@ -65,5 +65,11 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             return Redirect("/SysAdmin/PhotoCategory/List");
 
         }
+
+        public ActionResult Show(int id)
+        {
+            PhotoCategory photoCategory = _PhotoCategoryService.GetByID(id);
+            return View(photoCategory);
+        }
     }
 }

@@ -263,6 +263,10 @@
     <Content Include="Areas\SysAdmin\Views\Certificate\List.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Certificate\Show.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Certificate\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\PhotoCategory\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\PhotoCategory\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\PhotoCategory\Show.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\PhotoCategory\Update.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
@@ -277,7 +281,6 @@
     <Folder Include="Areas\SysAdmin\Views\Comment\" />
     <Folder Include="Areas\SysAdmin\Views\Contact\" />
     <Folder Include="Areas\SysAdmin\Views\Contract\" />
-    <Folder Include="Areas\SysAdmin\Views\PhotoCategory\" />
     <Folder Include="Areas\SysAdmin\Views\Photo\" />
     <Folder Include="Areas\SysAdmin\Views\ProjectCategory\" />
     <Folder Include="Areas\SysAdmin\Views\Project\" />
