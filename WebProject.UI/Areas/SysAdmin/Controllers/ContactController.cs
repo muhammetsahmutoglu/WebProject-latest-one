@@ -24,23 +24,28 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         }
         [HttpPost]
         public ActionResult Add(Contact _Contact)
-        {            
-            _ContactService.Add(_Contact);
-            return Redirect("/SysAdmin/Contact/List");
-        }
-
-        public ActionResult List()
         {
-            List<Contact> Contacts = _ContactService.GetActive().Take(12).OrderByDescending(x => x.AddDate).ToList();
-            return View(Contacts);
+            List<Contact> contacts = _ContactService.GetActive();
+            if (contacts.Count()==1)
+            {
+                return Redirect("/SysAdmin/Contact/Show");
+            }
+            else
+            {
+                _ContactService.Add(_Contact);
+                return Redirect("/SysAdmin/Contact/Show");
+            }
+            
         }
-
-        public ActionResult Delete(int id)
+        public ActionResult Show()
         {
-            Contact Contact = _ContactService.GetByID(id);
-            _ContactService.Remove(Contact);
-            return Redirect("/SysAdmin/Contact/List");
-        }
+            Contact contact = _ContactService.GetByID(1);
+            if (contact==null)
+            {
+                return Redirect("/SysAdmin/Contact/Add");
+            }
+            return View(contact);
+        }       
 
         public ActionResult Update(int id)
         {
@@ -75,7 +80,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             Contact.WorkHoursInWeekDays = ContactDTO.WorkHoursInWeekDays;
             Contact.WorkHoursInWeekends = ContactDTO.WorkHoursInWeekends;
                _ContactService.Update(Contact);
-               return Redirect("/SysAdmin/Contact/List");
+               return Redirect("/SysAdmin/Contact/Show");
 
         }
     }

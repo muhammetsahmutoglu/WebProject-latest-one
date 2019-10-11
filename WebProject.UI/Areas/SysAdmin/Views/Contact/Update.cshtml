@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.UI.Areas.SysAdmin.Models.DTO.ContactDTO
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <h4 class="page-title">İletişim Sayfası düzenleme</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <form action="/SysAdmin/Contact/Update" role="form"  method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="Content">Açıklama <span class="text-danger">*</span></label>
+                        <input name="Content"  required="" value="@Model.Content" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input name="Adress"  value="@Model.Adress" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="PhoneNumber">Telefon Numarası<span class="text-danger">*</span></label>
+                        <input name="PhoneNumber"  value="@Model.PhoneNumber" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="Email">Email <span class="text-danger">*</span></label>
+                        <input name="Email" value="@Model.Email"  required="" class="form-control" type="email">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input name="Cellphone"  value="@Model.Cellphone" required="" class="form-control" type="tel">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Fax</label>
+                        <input name="Fax"  value="@Model.Fax" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Google Map<span class="text-danger">*</span></label>
+                        <input name="GoogleMap"  value="@Model.GoogleMap" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Hafta arası çalışma saatleri</label>
+                        <input name="WorkHoursInWeekDays" value="@Model.WorkHoursInWeekDays"  class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Hafta sonu çalışma saatleri</label>
+                        <input name="WorkHoursInWeekends" value="@Model.WorkHoursInWeekends" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="m-t-20 text-center">                
+                <button class="btn btn-primary submit-btn">Düzenle</button>
+            </div>
+        </form>
+    </div>
+</div>
+

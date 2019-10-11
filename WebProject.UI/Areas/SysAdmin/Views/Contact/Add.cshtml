@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <h4 class="page-title">İletişim Sayfası ekle</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <form role="form" enctype="multipart/form-data" method="post" action="/SysAdmin/Contact/Add">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="Content">Açıklama <span class="text-danger">*</span></label>
+                        <input name="Content" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input name="Adress" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="PhoneNumber">Telefon Numarası<span class="text-danger">*</span></label>
+                        <input name="PhoneNumber" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label >Cep Telefonu Numarası <span class="text-danger">*</span></label>
+                        <input name="Cellphone"  required="" class="form-control" type="tel">
+                    </div>
+                </div>                
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Fax</label>
+                        <input name="Fax" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Google Map<span class="text-danger">*</span></label>
+                        <input name="GoogleMap" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="Email">Email <span class="text-danger">*</span></label>
+                        <input name="Email" placeholder="Email" required="" class="form-control" type="email">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Hafta arası çalışma saatleri</label>
+                        <input name="WorkHoursInWeekDays" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Hafta sonu çalışma saatleri</label>
+                        <input name="WorkHoursInWeekends" required="" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="m-t-20 text-center">
+                <button class="btn btn-primary submit-btn">Ekle</button>
+            </div>
+        </form>
+    </div>
+</div>
+

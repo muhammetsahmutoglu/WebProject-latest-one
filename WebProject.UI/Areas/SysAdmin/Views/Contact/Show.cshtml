@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.Data.ORM.Entity.Contact
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <h4 class="page-title">İletişim Sayfası</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <form >
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="Content">Açıklama <span class="text-danger">*</span></label>
+                            <input name="Content" readonly="readonly" required="" value="@Model.Content" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Adres</label>
+                            <input name="Adress" readonly="readonly" value="@Model.Adress" required="" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="PhoneNumber">Telefon Numarası<span class="text-danger">*</span></label>
+                            <input name="PhoneNumber" readonly="readonly" value="@Model.PhoneNumber" required="" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label >Cep Telefonu Numarası<span class="text-danger">*</span></label>
+                            <input name="Cellphone" readonly="readonly" value="@Model.Cellphone" required="" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="Email">Email <span class="text-danger">*</span></label>
+                            <input name="Email" value="@Model.Email" readonly="readonly" required="" class="form-control" type="email">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Fax</label>
+                            <input name="Fax" readonly="readonly" value="@Model.Fax" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Google Map<span class="text-danger">*</span></label>
+                            <input name="GoogleMap" readonly="readonly" value="@Model.GoogleMap" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Hafta arası çalışma saatleri</label>
+                            <input name="WorkHoursInWeekDays" value="@Model.WorkHoursInWeekDays" readonly="readonly" class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Hafta sonu çalışma saatleri</label>
+                            <input name="WorkHoursInWeekends" value="@Model.WorkHoursInWeekends" readonly="readonly" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="m-t-20 text-center">
+                    <input name="ID" value="@Model.ID" style="visibility:hidden"/>
+                    <a href="/SysAdmin/Contact/Update/@Model.ID" class="btn btn-primary submit-btn">Düzenle</a>
+                </div>
+            </form>
+        </div>
+    </div>
+

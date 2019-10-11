@@ -15,7 +15,7 @@ namespace WebProject.Data.ORM.Context
     {
         public ProjectContext()
         {
-            Database.Connection.ConnectionString = "Server=MONSTER;Database=WebProject;Integrated Security=True;";
+            Database.Connection.ConnectionString = "Server=MONSTER;Database=WebProject;UID=sa;PWD=1234;";
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
