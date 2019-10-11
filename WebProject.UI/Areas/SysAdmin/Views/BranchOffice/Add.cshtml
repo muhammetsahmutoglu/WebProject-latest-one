@@ -3,7 +3,7 @@
     ViewBag.Title = "Add";
     Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
 }
-
+@model WebProject.Data.ORM.Entity.BranchOffice
   
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
@@ -14,6 +14,12 @@
             <div class="col-lg-8 offset-lg-2">
                 <form action="/SysAdmin/BranchOffice/Add" role="form" enctype="multipart/form-data" method="post" >
                     <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-control-file">
+                                <label>Şube Resmi <span class="text-danger">*</span></label>
+                                <input id="image" name="image" class="form-control" type="file">
+                            </div>
+                        </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Şube Adı <span class="text-danger">*</span></label>

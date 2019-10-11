@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.Data.ORM.Entity.BranchOffice
+
+
+
+<div class="row">
+    <div class="col-sm-7 col-6">
+        <h4 class="page-title">Şube Görüntüle</h4>
+    </div>
+</div>
+<div class="card-box profile-header">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="profile-view">
+                <div class="profile-img-wrap">
+                    <div class="profile-img">
+                        <a href="#">
+                            @if (Model.ImageUrl != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.ImageUrl);
+                                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                <img src="@imgsrc" class="img-fluid" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/img/user.jpg" class="img-fluid" />
+                            }
+                        </a>
+                    </div>
+                </div>
+                <div class="profile-basic">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="profile-info-left">                                <h3 class="user-name m-t-0 mb-0">@Model.Name</h3>
+                                
+                                <input name="ID" value="@Model.ID" style="visibility:hidden" />
+                                <div class="staff-msg"><a href="/SysAdmin/BranchOffice/Update/@Model.ID" class="btn btn-primary">Düzenle</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <ul class="personal-info">
+                                <li>
+                                    <span class="title">Telefon:</span>
+                                    <span class="text"><a href="">@Model.Phone</a></span>
+                                </li>
+                                <li>
+                                    <span class="title">Email:</span>
+                                    <span class="text"><a href="">@Model.Email</a></span>
+                                </li>
+                                <li>
+                                    <span class="title">Fax:</span>
+                                    <span class="text">@Model.Fax</span>
+                                </li>
+                                <li>
+                                    <span class="title">Addres:</span>
+                                    <span class="text">@Model.Adress</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -20,13 +20,25 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         }
         public ActionResult Add()
         {
-            return View();
+            BranchOffice branch = new BranchOffice();
+            return View(branch);
         }
         [HttpPost]
-        public ActionResult Add(BranchOffice branchOffice)
+        public ActionResult Add(BranchOffice branchOffice,HttpPostedFileBase image)
         {
             branchOffice.UserID = userService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
-            branchOfficeService.Add(branchOffice);
+            
+            if (image==null)
+            {
+                branchOfficeService.Add(branchOffice);
+            }
+            else
+            {
+                branchOffice.ImageUrl = new byte[image.ContentLength];
+                image.InputStream.Read(branchOffice.ImageUrl, 0, image.ContentLength);
+                branchOfficeService.Add(branchOffice);
+            }            
+            
             return Redirect("/SysAdmin/BranchOffice/List");
         }
 
@@ -75,6 +87,12 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             branchOfficeService.Update(branchOffice);
             return Redirect("/SysAdmin/BranchOffice/List");
 
+        }
+
+        public ActionResult Show(int id)
+        {
+            BranchOffice branch = branchOfficeService.GetByID(id);
+            return View(branch);
         }
 
     }
