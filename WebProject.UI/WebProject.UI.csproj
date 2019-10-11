@@ -258,6 +258,7 @@
     <Content Include="Areas\SysAdmin\Views\SocialMedia\Update.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Page\Update.cshtml" />
     <Content Include="Areas\SysAdmin\Views\BranchOffice\Show.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Catalog\Show.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">

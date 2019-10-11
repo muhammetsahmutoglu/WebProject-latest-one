@@ -59,14 +59,29 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             return View(catalogDTO);
         }
         [HttpPost]
-        public ActionResult Update(CatalogDTO catalogDTO)
+        public ActionResult Update(CatalogDTO catalogDTO, HttpPostedFileBase image)
         {
             Catalog catalog = catalogService.GetByID(catalogDTO.ID);
             catalog.Explanation = catalogDTO.Explanation;
             catalog.Name = catalogDTO.Name;
-            catalog.ImageUrl = catalogDTO.ImageUrl;
+            if (image == null)
+            {
+                catalogService.Update(catalog);
+            }
+            else
+            {
+                catalog.ImageUrl = new byte[image.ContentLength];
+                image.InputStream.Read(catalog.ImageUrl, 0, image.ContentLength);
+                catalogService.Update(catalog);
+            }
             catalogService.Update(catalog);
             return Redirect("/SysAdmin/Catalog/List");
+        }
+
+        public ActionResult Show(int id)
+        {
+            Catalog catalog = catalogService.GetByID(id);
+            return View(catalog);
         }
     }
 }
