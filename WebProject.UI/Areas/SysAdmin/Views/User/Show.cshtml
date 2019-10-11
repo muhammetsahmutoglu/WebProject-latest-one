@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.Data.ORM.Entity.User
+   
+        <div class="row">
+            <div class="col-sm-7 col-6">
+                <h4 class="page-title">My Profile</h4>
+            </div>            
+        </div>
+        <div class="card-box profile-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-view">
+                        <div class="profile-img-wrap">
+                            <div class="profile-img">
+                                <a href="#"><img class="avatar" src="assets\img\doctor-03.jpg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="profile-basic">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="profile-info-left">
+                                        <h3 class="user-name m-t-0 mb-0">@Model.FirstName @Model.LastName</h3>
+                                        <small class="text-muted">
+                                            Kullanıcı Türü:@if (Model.IsAdmin)
+                                            {
+                                                <a>Admin</a>
+                                            }
+                                            else
+                                            {
+                                                <a>Üye</a>
+                                            }, Kullanıcı Adı:@Model.UserName
+                                        </small>                                        
+                                        <input name="ID" value="@Model.ID" style="visibility:hidden" />
+                                        <div class="staff-msg"><a href="/SysAdmin/User/Update/@Model.ID" class="btn btn-primary">Profili Düzenle</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <ul class="personal-info">
+                                        <li>
+                                            <span class="title">Phone:</span>
+                                            <span class="text"><a href="">770-889-6484</a></span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Email:</span>
+                                            <span class="text"><a href=""><span class="__cf_email__" data-cfemail="86e5f4eff5f2efe8e7e1f4e9f0e3f5c6e3fee7ebf6eae3a8e5e9eb">[email&nbsp;protected]</span></a></span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Birthday:</span>
+                                            <span class="text">3rd March</span>
+                                        </li>
+                                        <li>
+                                            <span class="title">Address:</span>
+                                            <span class="text">714 Burwell Heights Road, Bridge City, TX, 77611</span>
+                                        </li>                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+  
+

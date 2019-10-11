@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+  
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h4 class="page-title">Şube Ekleme</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <form action="/SysAdmin/BranchOffice/Add" role="form" enctype="multipart/form-data" method="post" >
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Şube Adı <span class="text-danger">*</span></label>
+                                <input name="Name" required="" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Telefon</label>
+                                <input name="Phone" required="" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Adres <span class="text-danger">*</span></label>
+                                <input name="Adress" required="" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Email <span class="text-danger">*</span></label>
+                                <input name="Email" required="" class="form-control" type="email">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Fax</label>
+                                <input name="Fax" required="" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label>Google Harita</label>
+                                <input name="GoogleMap" class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>                                              
+                    <div class="m-t-20 text-center">
+                        <button class="btn btn-primary submit-btn">Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+  
+

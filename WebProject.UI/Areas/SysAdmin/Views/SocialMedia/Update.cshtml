@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.UI.Areas.SysAdmin.Models.DTO.SocialMediaDTO
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <h4 class="page-title">Medya Hesabını Güncelle</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <form action="/SysAdmin/SocialMedia/Update" role="form" enctype="multipart/form-data" method="post">            
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Ad <span class="text-danger">*</span></label>
+                        <input name="Name" required="" value="@Model.Name" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Url</label>
+                        <input name="Url" required="" value="@Model.Url" class="form-control" type="text">
+                    </div>
+                </div>
+                @*<div class="col-sm-6">
+                <div class="form-group">
+                    <label>Adres <span class="text-danger">*</span></label>
+                    <input name="ImageUrl" required="" class="form-control" type="text">
+                </div>
+            </div>*@
+            </div>
+            <div class="m-t-20 text-center">
+                <input name="ID" value="@Model.ID" style="visibility:hidden" />
+                <button class="btn btn-primary submit-btn">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+

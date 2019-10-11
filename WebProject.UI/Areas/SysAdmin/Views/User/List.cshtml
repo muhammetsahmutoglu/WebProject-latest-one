@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model  List<WebProject.Data.ORM.Entity.User>
+   
+        <div class="row">
+            <div class="col-sm-4 col-3">
+                <h4 class="page-title">Kullanıcı Listesi</h4>
+            </div>
+            <div class="col-sm-8 col-9 text-right m-b-20">
+                <a href="/SysAdmin/User/Add" class="btn btn-primary float-right btn-rounded"><i class="fa fa-plus"></i> Kullanıcı Ekle</a>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table">
+                        <thead>
+                            <tr>                               
+                                <td>
+                                 <h2>Profil resmi</h2>
+                                </td>
+                                <th>Kullanıcı Adı</th>
+                                <th>Ad</th>
+                                <th style="min-width: 110px;">Soy Ad</th>
+                                <th>Email</th>
+                                <th>Eklenme Tarihi</th>
+                                <th>Yetki</th>
+                                <th class="text-right">Sil/Düzenle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @if (item.ProfilePhoto != null)
+                                    {                                        
+                                            var base64 = Convert.ToBase64String(item.ProfilePhoto);
+                                            var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                            <img src="@imgsrc" style="max-height:28px;max-width:28px;" />                                        
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/img/user.jpg" style="max-height:28px;max-width:28px;" />
+                                    }
+                                </td>
+                                <td><a href="/SysAdmin/User/Show/@item.ID" >@item.UserName</a></td>
+                                <td><a href="/SysAdmin/User/Show/@item.ID" >@item.FirstName</a></td>
+                                <td><a href="/SysAdmin/User/Show/@item.ID" >@item.LastName</a></td>
+                                <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0c1ccc2c9cec1d3c9cdcfcec9d3e0c5d8c1cdd0ccc58ec3cfcd">@item.Email</a></td>
+                                <td>@item.AddDate.Date.Year - @item.AddDate.Date.Month - @item.AddDate.Date.Day</td>
+                                @if (item.IsAdmin == true)
+                                {
+                                    <td>
+                                        <span class="custom-badge status-green">Admin</span>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <span class="custom-badge status-grey">Uye</span>
+                                    </td>
+                                }
+                                <td class="text-right">
+                                    <div class="dropdown dropdown-action">
+                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(23px, 26px, 0px);" x-out-of-boundaries="">
+                                            <a class="dropdown-item" href="/SysAdmin/User/Update/@item.ID"><i class="fa fa-pencil m-r-5"></i> Düzenle</a>
+                                            <a class="dropdown-item" href="/SysAdmin/User/Delete/@item.ID" data-toggle="modal"><i class="fa fa-trash-o m-r-5"></i> Sil</a>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+  
+

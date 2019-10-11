@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.UI.Areas.SysAdmin.Models.DTO.BranchOfficeDTO
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <h4 class="page-title">Şube Güncelle</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <form action="/SysAdmin/BranchOffice/Update" role="form" enctype="multipart/form-data" method="post">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Şube Adı <span class="text-danger">*</span></label>
+                        <input name="Name" required="" value="@Model.Name" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input name="Phone" required="" value="@Model.Phone" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Adres <span class="text-danger">*</span></label>
+                        <input name="Adress" required="" value="@Model.Adress" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Email <span class="text-danger">*</span></label>
+                        <input name="Email" required="" value="@Model.Email" class="form-control" type="email">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Fax</label>
+                        <input name="Fax" required="" value="@Model.Fax" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Google Harita</label>
+                        <input name="GoogleMap" class="form-control" value="@Model.GoogleMap" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="m-t-20 text-center">
+                <input name="ID" value="@Model.ID" style="visibility:hidden" />
+                <button class="btn btn-primary submit-btn">Kaydet</button>
+            </div>
+        </form>
+    </div>
+</div>
+

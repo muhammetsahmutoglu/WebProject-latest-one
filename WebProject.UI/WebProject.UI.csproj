@@ -1,0 +1,335 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{219DF1E3-9920-4601-9572-2514B1B40B1F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebProject.UI</RootNamespace>
+    <AssemblyName>WebProject.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44329</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\fullcalendar.min.css" />
+    <Content Include="Content\css\select2.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\tagsinput.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\img\attachment.png" />
+    <Content Include="Content\img\blog\blog-01.jpg" />
+    <Content Include="Content\img\blog\blog-02.jpg" />
+    <Content Include="Content\img\blog\blog-03.jpg" />
+    <Content Include="Content\img\blog\blog-04.jpg" />
+    <Content Include="Content\img\blog\blog-thumb-01.jpg" />
+    <Content Include="Content\img\blog\blog-thumb-02.jpg" />
+    <Content Include="Content\img\blog\blog-thumb-03.jpg" />
+    <Content Include="Content\img\blog\blog-thumb-04.jpg" />
+    <Content Include="Content\img\calander.png" />
+    <Content Include="Content\img\clock.png" />
+    <Content Include="Content\img\doctor-03.jpg" />
+    <Content Include="Content\img\doctor-thumb-01.jpg" />
+    <Content Include="Content\img\doctor-thumb-02.jpg" />
+    <Content Include="Content\img\doctor-thumb-03.jpg" />
+    <Content Include="Content\img\doctor-thumb-04.jpg" />
+    <Content Include="Content\img\doctor-thumb-05.jpg" />
+    <Content Include="Content\img\doctor-thumb-06.jpg" />
+    <Content Include="Content\img\doctor-thumb-07.jpg" />
+    <Content Include="Content\img\doctor-thumb-08.jpg" />
+    <Content Include="Content\img\doctor-thumb-09.jpg" />
+    <Content Include="Content\img\doctor-thumb-10.jpg" />
+    <Content Include="Content\img\doctor-thumb-11.jpg" />
+    <Content Include="Content\img\doctor-thumb-12.jpg" />
+    <Content Include="Content\img\favicon.ico" />
+    <Content Include="Content\img\logo-dark.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\patient-thumb-01.jpg" />
+    <Content Include="Content\img\patient-thumb-02.jpg" />
+    <Content Include="Content\img\placeholder-thumb.jpg" />
+    <Content Include="Content\img\placeholder.jpg" />
+    <Content Include="Content\img\sent.png" />
+    <Content Include="Content\img\user-02.jpg" />
+    <Content Include="Content\img\user-03.jpg" />
+    <Content Include="Content\img\user-04.jpg" />
+    <Content Include="Content\img\user-05.jpg" />
+    <Content Include="Content\img\user-06.jpg" />
+    <Content Include="Content\img\user.jpg" />
+    <Content Include="Content\img\video-call.jpg" />
+    <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\Chart.bundle.js" />
+    <Content Include="Content\js\chart.js" />
+    <Content Include="Content\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\js\fullcalendar.min.js" />
+    <Content Include="Content\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\js\jquery.dataTables.min.js" />
+    <Content Include="Content\js\jquery.fullcalendar.js" />
+    <Content Include="Content\js\jquery.slimscroll.js" />
+    <Content Include="Content\js\moment.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\select2.min.js" />
+    <Content Include="Content\js\tagsinput.js" />
+    <Content Include="Content\plugins\light-gallery\css\lightgallery.min.css" />
+    <Content Include="Content\plugins\light-gallery\fonts\lg.svg" />
+    <Content Include="Content\plugins\light-gallery\img\loading.gif" />
+    <Content Include="Content\plugins\light-gallery\img\video-play.png" />
+    <Content Include="Content\plugins\light-gallery\img\vimeo-play.png" />
+    <Content Include="Content\plugins\light-gallery\img\youtube-play.png" />
+    <Content Include="Content\plugins\light-gallery\js\lightgallery-all.min.js" />
+    <Content Include="Content\plugins\summernote\dist\summernote-bs4.css" />
+    <Content Include="Content\plugins\summernote\dist\summernote-bs4.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\BranchOfficeController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\CatalogController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\CertificateController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\CommentController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\ContractController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\PageController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\PhotoCategoryController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\PhotoController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\ProjectCategoryController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\ProjectController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\QAController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\ReferenceController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\SliderController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\SocialMediaController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\SysController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\UserController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\VideoCategoryController.cs" />
+    <Compile Include="Areas\SysAdmin\Controllers\VideoController.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\BranchOfficeDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\CatalogDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\CertificateDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\CommentDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\ContactDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\ContractDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\PageDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\PhotoCategoryDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\PhotoDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\ProjectCategoryDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\ProjectDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\ReferenceDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\SliderDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\SocialMediaDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\UserDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\VideoCategoryDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\DTO\VideoDTO.cs" />
+    <Compile Include="Areas\SysAdmin\Models\VM\PageVM.cs" />
+    <Compile Include="Areas\SysAdmin\Models\VM\QAVM.cs" />
+    <Compile Include="Areas\SysAdmin\Models\VM\QuestionAnswerVM.cs" />
+    <Compile Include="Areas\SysAdmin\SysAdminAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VM\LoginVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\SysAdmin\Views\web.config" />
+    <Content Include="Areas\SysAdmin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Sys\Dashboard.cshtml" />
+    <Content Include="Content\fonts\fontawesome-webfont-1.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\plugins\light-gallery\fonts\lg-1.eot" />
+    <Content Include="Content\plugins\light-gallery\fonts\lg.eot" />
+    <Content Include="Content\plugins\light-gallery\fonts\lg.ttf" />
+    <Content Include="Content\plugins\light-gallery\fonts\lg.woff" />
+    <Content Include="Content\plugins\summernote\dist\font\summernote-1.eot" />
+    <Content Include="Content\plugins\summernote\dist\font\summernote.eot" />
+    <Content Include="Content\plugins\summernote\dist\font\summernote.ttf" />
+    <Content Include="Content\plugins\summernote\dist\font\summernote.woff" />
+    <Content Include="Areas\SysAdmin\Views\User\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\User\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\User\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Page\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Page\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Page\Show.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\User\Show.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\QA\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\QA\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\QA\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\BranchOffice\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\BranchOffice\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\BranchOffice\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Catalog\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Catalog\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Catalog\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\SocialMedia\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\SocialMedia\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\SocialMedia\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Page\Update.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\SysAdmin\Views\Certificate\" />
+    <Folder Include="Areas\SysAdmin\Views\Comment\" />
+    <Folder Include="Areas\SysAdmin\Views\Contact\" />
+    <Folder Include="Areas\SysAdmin\Views\Contract\" />
+    <Folder Include="Areas\SysAdmin\Views\PhotoCategory\" />
+    <Folder Include="Areas\SysAdmin\Views\Photo\" />
+    <Folder Include="Areas\SysAdmin\Views\ProjectCategory\" />
+    <Folder Include="Areas\SysAdmin\Views\Project\" />
+    <Folder Include="Areas\SysAdmin\Views\Reference\" />
+    <Folder Include="Areas\SysAdmin\Views\Slider\" />
+    <Folder Include="Areas\SysAdmin\Views\VideoCategory\" />
+    <Folder Include="Areas\SysAdmin\Views\Video\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebProject.BLL\WebProject.BLL.csproj">
+      <Project>{4C2884B1-1BC4-4800-A747-E5A7FACFF224}</Project>
+      <Name>WebProject.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebProject.Data\WebProject.Data.csproj">
+      <Project>{0E5B1C9A-4477-4251-95A1-5679FA7BF1D3}</Project>
+      <Name>WebProject.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50038</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51016/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

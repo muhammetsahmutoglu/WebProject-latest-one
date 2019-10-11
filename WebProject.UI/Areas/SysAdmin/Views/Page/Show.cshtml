@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.UI.Areas.SysAdmin.Models.VM.PageVM
+    
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="page-title"></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-view">
+                    <article class="blog blog-single-post">
+                        <div class="dropdown profile-action">
+                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <input name="ID" value="2" style="visibility:hidden">
+                                <a class="dropdown-item" href="/SysAdmin/Page/Update/@Model.page.ID"><i class="fa fa-pencil m-r-5"></i> Düzenle</a>
+                                <a class="dropdown-item" href="/SysAdmin/Page/Delete/@Model.page.ID"><i class="fa fa-trash-o m-r-5"></i> Sil</a>
+                            </div>
+                        </div>
+                        <h3 class="blog-title">@Model.page.Name</h3>
+                        <div class="blog-info clearfix">
+                            <div class="post-left">
+                                <ul>
+                                    <li><i class="fa fa-calendar"></i> <span>@Model.page.AddDate.Date.Day-@Model.page.AddDate.Date.Month-@Model.page.AddDate.Date.Year</span></li>
+                                    <li><i class="fa fa-user-o"></i> <span>@Model.page.User.UserName tarafından yazıldı.</span></li>
+                                </ul>
+                            </div>                            
+                        </div>
+                        @*<div class="blog-image">
+            <a href="#."><img alt="" src="assets\img\blog\blog-01.jpg" class="img-fluid"></a>
+        </div>*@
+                    <div class="blog-content">
+                        <p>@Model.page.Explanation</p>
+                        
+                    </div>                        
+                    </article>         
+                                     
+                    
+                </div>
+            </div>
+            <aside class="col-md-4">                
+                <div class="widget post-widget">
+                    <h5>Latest Posts</h5>
+                    <ul class="latest-posts">
+                        @foreach (var item in Model.pages)
+                        {
+                            <li>
+                                <div class="post-thumb">
+                                    <a href="blog-details.html">
+                                        <img class="img-fluid" src="assets\img\blog\blog-thumb-01.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-info">
+                                    <h4>
+                                        <a href="/SysAdmin/Page/Show/@item.ID">@item.Name</a>
+                                    </h4>
+                                    <p><i aria-hidden="true" class="fa fa-calendar"></i>@item.AddDate.Date.Day-@item.AddDate.Date.Month-@item.AddDate.Date.Year</p>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                </div>              
+                
+            </aside>
+        </div>
+    

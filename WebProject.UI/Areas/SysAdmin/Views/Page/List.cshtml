@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<WebProject.Data.ORM.Entity.Page>
+
+<div class="row">
+    <div class="col-sm-8 col-4">
+        <h4 class="page-title">Sayfa Listesi</h4>
+    </div>
+    <div class="col-sm-4 col-8 text-right m-b-30">
+        <a class="btn btn-primary btn-rounded float-right" href="/SysAdmin/Page/Add"><i class="fa fa-plus"></i> Sayfa Ekle</a>
+    </div>
+</div>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-6 col-lg-4">
+            <div class="blog grid-blog">
+                <div class="blog-image">
+                    <a href="blog-details.html"><img class="img-fluid" src="assets\img\blog\blog-01.jpg" alt=""></a>
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title"><a href="/SysAdmin/Page/Show/@item.ID">@item.Name</a></h3>
+                    <p>@item.Explanation</p>
+                    @if (item.Explanation.Length > 31)
+                    {
+                        <a href="/SysAdmin/Page/Show/@item.ID" class="read-more"><i class="fa fa-long-arrow-right"></i> Devamını Oku</a>
+                    }
+                    <div class="blog-info clearfix">
+                        <div class="post-left">
+                            <ul>
+                                <li><i class="fa fa-calendar"></i> <span>@item.AddDate.Date.Day-@item.AddDate.Date.Month-@item.AddDate.Date.Year</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

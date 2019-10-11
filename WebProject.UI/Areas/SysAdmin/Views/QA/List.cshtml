@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.UI.Areas.SysAdmin.Models.VM.QAVM
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="page-title">Sıkça Sorulan Sorular</h2>
+            </div>
+        </div>
+        @foreach (var question in Model.Questions)
+        {
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <div class="mailview-content">
+                    <div class="mailview-header">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="text-ellipsis m-b-10">
+                                    <span class="mail-view-title">@question.Content</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                    </div>
+                    @foreach (var answer in Model.Answers)
+                    {
+                        if (answer.QuestionID == question.ID)
+                        {
+                <div class="mailview-inner">
+                    <p>@answer.Content</p>
+                    <div class="col-sm-6 right-action">
+                        <a href="/SysAdmin/QA/Update/@answer.ID" class="btn btn-white"><i class="fa fa-edit"></i> Düzenle</a>
+                        <a href="/SysAdmin/QA/Delete/@answer.ID" class="btn btn-white"><i class="fa fa-trash-o"></i> Sil</a>
+                    </div>
+                </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        
+    </div>
+        }
+
+    </div>
+
