@@ -10,10 +10,12 @@ namespace WebProject.UI.Areas.SysAdmin.Models.VM
     {
         public PageVM()
         {
+            
             page = new Page();
             pages = new List<Page>();
         }
         public Page page { get; set; }
         public List<Page> pages { get; set; }
+        public string UserName { get; set; }
     }
 }

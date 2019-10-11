@@ -14,6 +14,18 @@
             <div class="col-md-8">
                 <div class="blog-view">
                     <article class="blog blog-single-post">
+                        <div class="blog-image">
+                            @if (Model.page.ImageUrl != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.page.ImageUrl);
+                                var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                <img src="@imgsrc" class="img-fluid" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/img/user.jpg" class="img-fluid" />
+                            }
+                        </div>
                         <div class="dropdown profile-action">
                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                             <div class="dropdown-menu dropdown-menu-right">
@@ -27,17 +39,17 @@
                             <div class="post-left">
                                 <ul>
                                     <li><i class="fa fa-calendar"></i> <span>@Model.page.AddDate.Date.Day-@Model.page.AddDate.Date.Month-@Model.page.AddDate.Date.Year</span></li>
-                                    <li><i class="fa fa-user-o"></i> <span>@Model.page.User.UserName tarafından yazıldı.</span></li>
+                                    <li><i class="fa fa-user-o"></i> <span>@Model.UserName tarafından yazıldı.</span></li>
                                 </ul>
-                            </div>                            
+                            </div>
                         </div>
                         @*<div class="blog-image">
             <a href="#."><img alt="" src="assets\img\blog\blog-01.jpg" class="img-fluid"></a>
         </div>*@
-                    <div class="blog-content">
-                        <p>@Model.page.Explanation</p>
-                        
-                    </div>                        
+                        <div class="blog-content">
+                            <p>@Model.page.Explanation</p>
+
+                        </div>
                     </article>         
                                      
                     

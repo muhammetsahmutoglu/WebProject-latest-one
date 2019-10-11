@@ -60,6 +60,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         {
             PageVM model = new PageVM()
             {
+                UserName = pageService.GetByID(id).User.UserName,
                 page = pageService.GetByID(id),
                 pages = pageService.GetActive().Take(10).OrderByDescending(x => x.AddDate).ToList()
             };
