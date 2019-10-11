@@ -78,7 +78,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             return View(user);
         }
         [HttpPost]
-        public ActionResult Update(UserDTO userDTO)
+        public ActionResult Update(UserDTO userDTO,HttpPostedFileBase image)
         {
             User user = userService.GetByID(userDTO.ID);            
             user.FirstName = userDTO.FirstName;
@@ -94,6 +94,16 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             {
                 user.IsAdmin = false;
             }
+            if (image == null)
+            {
+                userService.Update(user);
+            }
+            else
+            {
+                user.ProfilePhoto = new byte[image.ContentLength];
+                image.InputStream.Read(user.ProfilePhoto, 0, image.ContentLength);
+            }
+
             userService.Update(user);
             return Redirect("/SysAdmin/User/List");
             
