@@ -16,7 +16,18 @@
                     <div class="profile-view">
                         <div class="profile-img-wrap">
                             <div class="profile-img">
-                                <a href="#"><img class="avatar" src="assets\img\doctor-03.jpg" alt=""></a>
+                                <a href="#">
+                                    @if (Model.ProfilePhoto != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(Model.ProfilePhoto);
+                                        var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                        <img src="@imgsrc" class="img-fluid" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/img/user.jpg" class="img-fluid" />
+                                    }
+                                </a>
                             </div>
                         </div>
                         <div class="profile-basic">
