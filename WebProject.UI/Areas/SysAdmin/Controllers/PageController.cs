@@ -21,10 +21,11 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         }
         public ActionResult Add()
         {
-            return View();
+            Page page = new Page();
+            return View(page);
         }
         [HttpPost]
-        public ActionResult Add(Page page)
+        public ActionResult Add(Page page,HttpPostedFileBase image)
         {
             User user = userService.GetByDefault(x => x.UserName == User.Identity.Name);
             page.UserID = user.ID;
@@ -34,7 +35,16 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             }
             else
             {
-                pageService.Add(page);
+                if (image == null)
+                {
+                    pageService.Add(page);
+                }
+                else
+                {
+                    page.ImageUrl = new byte[image.ContentLength];
+                    image.InputStream.Read(page.ImageUrl, 0, image.ContentLength);
+                    pageService.Add(page);
+                }
             }
 
             return Redirect("/SysAdmin/Page/List");
@@ -70,13 +80,22 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(PageDTO pageDTO)
+        public ActionResult Update(PageDTO pageDTO,HttpPostedFileBase image)
         {
             Page page = pageService.GetByID(pageDTO.ID);
             page.Name = pageDTO.Name;
             page.Explanation = pageDTO.Explanation;
-            page.ImageUrl = pageDTO.ImageUrl;
-            pageService.Update(page);
+            if (image == null)
+            {
+                pageService.Update(page);
+            }
+            else
+            {
+                page.ImageUrl = new byte[image.ContentLength];
+                image.InputStream.Read(page.ImageUrl, 0, image.ContentLength);
+                pageService.Update(page);
+            }
+            
             return Redirect("/SysAdmin/Page/Show"+"/"+page.ID);
         }
 
