@@ -26,10 +26,18 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         [HttpPost]
         public ActionResult Add(Catalog catalog, HttpPostedFileBase image)
         {
-            catalog.UserID = userService.GetByDefault(x => x.UserName == User.Identity.Name).ID;            
-            catalog.ImageUrl = new byte[image.ContentLength];
-            image.InputStream.Read(catalog.ImageUrl, 0, image.ContentLength);
-            catalogService.Add(catalog);
+            catalog.UserID = userService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
+            if (image==null)
+            {
+                catalogService.Add(catalog);
+            }
+            else
+            {
+                catalog.ImageUrl = new byte[image.ContentLength];
+                image.InputStream.Read(catalog.ImageUrl, 0, image.ContentLength);
+                catalogService.Add(catalog);
+            }
+           
             return Redirect("/SysAdmin/Catalog/List");
         }
 

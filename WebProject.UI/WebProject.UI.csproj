@@ -259,6 +259,10 @@
     <Content Include="Areas\SysAdmin\Views\Page\Update.cshtml" />
     <Content Include="Areas\SysAdmin\Views\BranchOffice\Show.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Catalog\Show.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Certificate\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Certificate\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Certificate\Show.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Certificate\Update.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
@@ -270,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\SysAdmin\Views\Certificate\" />
     <Folder Include="Areas\SysAdmin\Views\Comment\" />
     <Folder Include="Areas\SysAdmin\Views\Contact\" />
     <Folder Include="Areas\SysAdmin\Views\Contract\" />

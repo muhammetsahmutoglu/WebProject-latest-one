@@ -21,14 +21,30 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         
         public ActionResult Add()
         {
-            return View();
+            Certificate certificate = new Certificate();
+            return View(certificate);
         }
         [HttpPost]
-        public ActionResult Add(Certificate certificate)
+        public ActionResult Add(Certificate certificate,HttpPostedFileBase image)
         {
             certificate.UserID = userService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
-            certificateService.Add(certificate);
+            if (image == null)
+            {
+                certificateService.Add(certificate);
+            }
+            else
+            {
+                certificate.ImageURl = new byte[image.ContentLength];
+                image.InputStream.Read(certificate.ImageURl, 0, image.ContentLength);
+                certificateService.Add(certificate);
+            }
             return Redirect("/SysAdmin/Certificate/List");
+        }
+
+        public ActionResult List()
+        {
+            List<Certificate> certificates = certificateService.GetActive().Take(10).OrderByDescending(x => x.AddDate).ToList();
+            return View(certificates);
         }
 
         public ActionResult Delete(int id)
@@ -57,14 +73,22 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             return View(certificateDTO);
         }
         [HttpPost]
-        public ActionResult Update(CertificateDTO certificateDTO)
+        public ActionResult Update(CertificateDTO certificateDTO, HttpPostedFileBase image)
         {
             Certificate certificate = certificateService.GetByID(certificateDTO.ID);
-            certificate.Name = certificateDTO.Name;
-            certificate.ImageURl = certificateDTO.ImageURl;
+            certificate.Name = certificateDTO.Name;            
             certificate.Explanation = certificateDTO.Explanation;
-            certificateService.Update(certificate);
-            return Redirect("SysAdmin/Certificate/Show" + "/" + certificate.ID);
+            if (image == null)
+            {
+                certificateService.Update(certificate);
+            }
+            else
+            {
+                certificate.ImageURl = new byte[image.ContentLength];
+                image.InputStream.Read(certificate.ImageURl, 0, image.ContentLength);
+                certificateService.Update(certificate);
+            }
+            return Redirect("/SysAdmin/Certificate/Show" + "/" + certificate.ID);
         }
     }
 }
