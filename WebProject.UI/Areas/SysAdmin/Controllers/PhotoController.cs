@@ -44,6 +44,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
                 image.InputStream.Read(_Photo.Photo.Url, 0, image.ContentLength);
                 _Photo.Photo.Name = image.FileName;
                 _Photo.Photo.PhotoCategoryID = _PhotoCategoryService.GetByDefault(x => x.Name == _Photo.CategoryName).ID;
+                image.SaveAs(image.FileName);
                 _PhotoService.Add(_Photo.Photo);
             }            
             return Redirect("/SysAdmin/Photo/List");
