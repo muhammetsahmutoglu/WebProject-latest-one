@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.UI.Areas.SysAdmin.Models.VM.PhotoVM
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Fotoğraf Ekle</h4>
+        </div>
+    </div>
+    <form action="/SysAdmin/Photo/Add" enctype="multipart/form-data" role="form" method="post" >
+        <div class="form-group row">
+            <div class="col-md-10">
+                <input id="image" name="image" class="form-control" type="file">
+            </div>
+
+            <div class="col-md-10">
+                <label class="col-form-label col-md-2">Kategori Seçiniz</label>
+                <select name="CategoryName" class="form-control">
+                    <option>-- Seç --</option>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <option>@item.Name</option>
+                    }
+                </select>
+            </div>
+            <button class="btn btn-primary float-right btn-rounded"><i class="btn-primary"></i> Kaydet</button>
+        </div>         
+    </form>
+    
+

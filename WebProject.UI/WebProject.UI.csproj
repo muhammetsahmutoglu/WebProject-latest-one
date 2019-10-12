@@ -209,6 +209,7 @@
     <Compile Include="Areas\SysAdmin\Models\DTO\VideoCategoryDTO.cs" />
     <Compile Include="Areas\SysAdmin\Models\DTO\VideoDTO.cs" />
     <Compile Include="Areas\SysAdmin\Models\VM\PageVM.cs" />
+    <Compile Include="Areas\SysAdmin\Models\VM\PhotoVM.cs" />
     <Compile Include="Areas\SysAdmin\Models\VM\QAVM.cs" />
     <Compile Include="Areas\SysAdmin\Models\VM\QuestionAnswerVM.cs" />
     <Compile Include="Areas\SysAdmin\SysAdminAreaRegistration.cs" />
@@ -270,6 +271,7 @@
     <Content Include="Areas\SysAdmin\Views\Contact\Add.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Contact\Show.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Contact\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Photo\Add.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -284,7 +286,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\SysAdmin\Views\Comment\" />
     <Folder Include="Areas\SysAdmin\Views\Contract\" />
-    <Folder Include="Areas\SysAdmin\Views\Photo\" />
     <Folder Include="Areas\SysAdmin\Views\ProjectCategory\" />
     <Folder Include="Areas\SysAdmin\Views\Project\" />
     <Folder Include="Areas\SysAdmin\Views\Reference\" />

@@ -26,8 +26,16 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         public ActionResult Add(PhotoCategory _PhotoCategory)
         {
             _PhotoCategory.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
-            _PhotoCategoryService.Add(_PhotoCategory);
-            return Redirect("/SysAdmin/PhotoCategory/List");
+            if (_PhotoCategoryService.Any(x=>x.Name.ToLower()==_PhotoCategory.Name.ToLower()))
+            {
+                return View();
+            }
+            else
+            {
+                _PhotoCategoryService.Add(_PhotoCategory);
+                return Redirect("/SysAdmin/PhotoCategory/List");
+            }
+            
         }
 
         public ActionResult List()

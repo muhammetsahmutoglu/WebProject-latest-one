@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebProject.BLL.Option;
 using WebProject.Data.ORM.Entity;
 using WebProject.UI.Areas.SysAdmin.Models.DTO;
+using WebProject.UI.Areas.SysAdmin.Models.VM;
 
 namespace WebProject.UI.Areas.SysAdmin.Controllers
 {
@@ -13,20 +14,38 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
     {
         UserService _UserService;
         PhotoService _PhotoService;
+        PhotoCategoryService _PhotoCategoryService;
         public PhotoController()
         {
             _UserService = new UserService();
             _PhotoService = new PhotoService();
+            _PhotoCategoryService = new PhotoCategoryService();
         }
         public ActionResult Add()
         {
-            return View();
+            PhotoVM photoVM = new PhotoVM()
+            {
+                Categories = _PhotoCategoryService.GetActive()
+
+            };
+            return View(photoVM);
         }
         [HttpPost]
-        public ActionResult Add(Photo _Photo)
+        public ActionResult Add(PhotoVM _Photo,HttpPostedFileBase image)
         {
-            _Photo.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
-            _PhotoService.Add(_Photo);
+            _Photo.Photo.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
+            if (image == null)
+            {
+                return View();
+            }
+            else
+            {
+                _Photo.Photo.Url = new byte[image.ContentLength];
+                image.InputStream.Read(_Photo.Photo.Url, 0, image.ContentLength);
+                _Photo.Photo.Name = image.FileName;
+                _Photo.Photo.PhotoCategoryID = _PhotoCategoryService.GetByDefault(x => x.Name == _Photo.CategoryName).ID;
+                _PhotoService.Add(_Photo.Photo);
+            }            
             return Redirect("/SysAdmin/Photo/List");
         }
 
@@ -35,6 +54,12 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             List<Photo> Photos = _PhotoService.GetActive().Take(12).OrderByDescending(x => x.AddDate).ToList();
             return View(Photos);
         }
+
+        public ActionResult ListByCategory(int id)
+        {
+            List<Photo> photos = _PhotoService.GetActive().Where(x => x.PhotoCategoryID == id).ToList();
+            return View(photos);
+        } 
 
         public ActionResult Delete(int id)
         {
