@@ -17,6 +17,7 @@ namespace WebProject.UI.Areas.SysAdmin.Models.VM
         public Photo Photo { get; set; }
         public List<PhotoCategory> Categories { get; set; }
         public string CategoryName { get; set; }
+        public string UserName { get; set; }
         public List<Photo> Photos { get; set; }
         
     }

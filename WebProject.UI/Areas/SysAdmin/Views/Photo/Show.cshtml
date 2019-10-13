@@ -14,7 +14,7 @@
                         <div class="post-left">
                             <ul>
                                 <li><a href="#."><i class="fa fa-calendar"></i> <span>@Model.Photo.AddDate.Date.Day-@Model.Photo.AddDate.Date.Month-@Model.Photo.AddDate.Date.Year</span></a></li>
-                                <li><a href="#."><i class="fa fa-user-o"></i> <span>@Model.Photo.User.UserName tarafından eklendi.</span></a></li>
+                                <li><a href="#."><i class="fa fa-user-o"></i> <span>@Model.UserName tarafından eklendi.</span></a></li>
                             </ul>
                         </div>                       
                     </div>
@@ -44,6 +44,7 @@
                                 <a href="/SysAdmin/Photo/Show/@item.ID">
                                     <img class="img-fluid" src="@imgsrc1" alt="">
                                 </a>
+                                <p>@item.User.UserName</p>
                             </div>                            
                         </li>
                     }

@@ -104,7 +104,8 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             {
                 Photo = _PhotoService.GetByID(id),
                 Photos = _PhotoService.GetActive().Take(10).OrderByDescending(x => x.AddDate).ToList(),
-                Categories = _PhotoCategoryService.GetActive().Take(10).OrderByDescending(x => x.Name).ToList()
+                Categories = _PhotoCategoryService.GetActive().Take(10).OrderByDescending(x => x.Name).ToList(),
+                UserName=_PhotoService.GetByID(id).User.UserName
             };
             return View(photoVM);
         }
