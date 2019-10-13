@@ -63,11 +63,12 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             return View(CommentDTO);
         }
         [HttpPost]
-        public ActionResult Update(CommentDTO CommentDTO)
+        public ActionResult Update(CommentDTO CommentDTO,HttpPostedFileBase image)
         {
 
             Comment Comment = _CommentService.GetByID(CommentDTO.ID);
-            Comment.ProfilePhotoURL = CommentDTO.ProfilePhotoURL;
+            Comment.ProfilePhotoURL = new byte[image.ContentLength];
+            image.InputStream.Read(Comment.ProfilePhotoURL, 0, image.ContentLength);
             Comment.Authority = CommentDTO.Authority;
             Comment.Email = CommentDTO.Email;
             Comment.CommentContent = CommentDTO.CommentContent;

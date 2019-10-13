@@ -277,6 +277,7 @@
     <Content Include="Areas\SysAdmin\Views\Photo\ListByCategory.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Comment\Add.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Comment\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Comment\Update.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />

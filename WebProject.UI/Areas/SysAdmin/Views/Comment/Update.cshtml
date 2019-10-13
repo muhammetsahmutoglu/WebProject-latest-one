@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model WebProject.UI.Areas.SysAdmin.Models.DTO.CommentDTO
+    <div class="widget new-comment clearfix">
+        <h3>Müşteri Yorumu Güncelle</h3>
+        <form action="/SysAdmin/Comment/Update" role="form" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Profil resmi</label>
+                        <div class="col-md-10">
+                            <input name="image" id="image" class="form-control" type="file">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Müşteri Adı <span class="text-red">*</span></label>
+                        <input value="@Model.CustomerName" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Firma Adı <span class="text-red">*</span></label>
+                        <input value="@Model.CompanyName" type="text" name="CompanyName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Yetki <span class="text-red">*</span></label>
+                        <input value="@Model.Authority" type="text" name="Authority" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Email <span class="text-red">*</span></label>
+                        <input value="@Model.Email" name="Email" type="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Müşteri Yorumu</label>
+                        <textarea name="CommentContent" rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="comment-submit">
+                        <input name="ID" type="text" value="@Model.ID" style="visibility:hidden" />
+                        <input type="submit" value="Kaydet" class="btn">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
