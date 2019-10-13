@@ -19,7 +19,7 @@
                 var base64 = Convert.ToBase64String(item.Url);
                 var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
 
-                <a href="@imgsrc"><img class="img-thumbnail" src="@imgsrc" alt=""></a>
+                <a href="/SysAdmin/Photo/Show/@item.ID"><img class="img-thumbnail" src="@imgsrc" alt=""></a>
             }
             <p>@item.Name</p>
         </div>

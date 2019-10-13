@@ -43,8 +43,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
                 _Photo.Photo.Url = new byte[image.ContentLength];
                 image.InputStream.Read(_Photo.Photo.Url, 0, image.ContentLength);
                 _Photo.Photo.Name = image.FileName;
-                _Photo.Photo.PhotoCategoryID = _PhotoCategoryService.GetByDefault(x => x.Name == _Photo.CategoryName).ID;
-                image.SaveAs(image.FileName);
+                _Photo.Photo.PhotoCategoryID = _PhotoCategoryService.GetByDefault(x => x.Name == _Photo.CategoryName).ID;                
                 _PhotoService.Add(_Photo.Photo);
             }            
             return Redirect("/SysAdmin/Photo/List");
@@ -58,8 +57,12 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
 
         public ActionResult ListByCategory(int id)
         {
-            List<Photo> photos = _PhotoService.GetActive().Where(x => x.PhotoCategoryID == id).ToList();
-            return View(photos);
+            PhotoVM photoVM = new PhotoVM()
+            {
+                Photos = _PhotoService.GetActive().Where(x => x.PhotoCategoryID == id).ToList(),
+                CategoryName=_PhotoCategoryService.GetByDefault(x=>x.ID==id).Name,
+            };
+            return View(photoVM);
         } 
 
         public ActionResult Delete(int id)
@@ -92,6 +95,18 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             _PhotoService.Update(Photo);
             return Redirect("/SysAdmin/Photo/List");
 
+        }
+
+        public ActionResult Show(int id)
+        {
+
+            PhotoVM photoVM = new PhotoVM()
+            {
+                Photo = _PhotoService.GetByID(id),
+                Photos = _PhotoService.GetActive().Take(10).OrderByDescending(x => x.AddDate).ToList(),
+                Categories = _PhotoCategoryService.GetActive().Take(10).OrderByDescending(x => x.Name).ToList()
+            };
+            return View(photoVM);
         }
     }
 }

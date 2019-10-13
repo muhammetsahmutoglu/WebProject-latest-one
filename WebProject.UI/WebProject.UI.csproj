@@ -273,6 +273,8 @@
     <Content Include="Areas\SysAdmin\Views\Contact\Update.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Photo\Add.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Photo\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Photo\Show.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Photo\ListByCategory.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
