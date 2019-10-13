@@ -21,12 +21,15 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         }
         public ActionResult Add()
         {
-            return View();
+            Comment comment = new Comment();
+            return View(comment);
         }
         [HttpPost]
-        public ActionResult Add(Comment _comment)
+        public ActionResult Add(Comment _comment, HttpPostedFileBase image)
         {
             _comment.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
+            _comment.ProfilePhotoURL = new byte[image.ContentLength];
+            image.InputStream.Read(_comment.ProfilePhotoURL, 0, image.ContentLength);
             _CommentService.Add(_comment);
             return Redirect("/SysAdmin/Comment/List");
         }

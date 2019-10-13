@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<WebProject.Data.ORM.Entity.Comment>
+@foreach (var item in Model)
+{
+    <div class="widget author-widget clearfix">
+        
+        <div class="about-author">
+            
+            <div class="about-author-img">
+                <div class="author-img-wrap">
+                    @{
+                        var base64 = Convert.ToBase64String(item.ProfilePhotoURL);
+                        var imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+                    }
+                    <img class="profile-img" alt="" src="@imgsrc">
+                </div>
+            </div>
+            <div class="author-details">
+                <span class="blog-author-name">@item.CustomerName, @item.CustomerName Şirketinde @item.Authority</span>
+                <p>@item.CommentContent</p>
+                <a href="/SysAdmin/Comment/Update/@item.ID" class="btn-primary" >Güncelle</a>
+                <a href="/SysAdmin/Comment/Delete/@item.ID" class="btn-danger">Sil</a>
+            </div>
+        </div>
+    </div>
+}
+
+
