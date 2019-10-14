@@ -10,11 +10,12 @@
             <div class="blog-view">
                 @foreach (var vid in Model.Videos)
                 {
-                   <video width="320" height="240" controls>
-                    <source src="@Url.Content(vid.Url)" type="video/mp4">
-                    <source src="@Url.Content(vid.Url)" type="video/ogg">
-                    Tarayıcınız bu özelliği desteklemiyor.
-                   </video>
+                    <h5>@vid.Name</h5>
+                    <video width="640" height="480" controls>
+                        <source src="@Url.Content(vid.Url)" type="video/mp4">
+                        <source src="@Url.Content(vid.Url)" type="video/ogg">
+                        Tarayıcınız bu özelliği desteklemiyor.
+                    </video>                    
                 }
 
             </div>
