@@ -33,6 +33,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
         [HttpPost]
         public ActionResult Add(VideoVM _VideoVM, HttpPostedFileBase videoFile)
         {
+            
             string fileName = Path.GetFileName(videoFile.FileName);
             videoFile.SaveAs(Server.MapPath("~/Content/VideoFiles/" + fileName));
             _VideoVM.Video.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
