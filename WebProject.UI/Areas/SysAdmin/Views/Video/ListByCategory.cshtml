@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "ListByCategory";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model WebProject.UI.Areas.SysAdmin.Models.VM.VideoVM
+
+<div class="row">
+    <div class="col-md-8">
+        <h5>@Model.CategoryName Kategorisindeki Videolar</h5>
+        <div class="blog-view">
+            @foreach (var vid in Model.Videos)
+            {
+                <video width="320" height="240" controls>
+                    <source src="@Url.Content(vid.Url)" type="video/mp4">
+                    <source src="@Url.Content(vid.Url)" type="video/ogg">
+                    Tarayıcınız bu özelliği desteklemiyor.
+                </video>
+            }
+
+        </div>
+    </div>
+    <aside class="col-md-4">
+        <div class="widget category-widget">
+            <h5>Video kategorileri</h5>
+            <ul class="categories">
+                <li><a href="/SysAdmin/Video/List"><i class="fa fa-long-arrow-right"></i>Tüm Videolar</a></li>
+                @foreach (var cat in Model.Categories)
+                {
+                    <li><a href="/SysAdmin/Video/ListByCategory/@cat.ID"><i class="fa fa-long-arrow-right"></i>@cat.Name</a></li>
+                }
+            </ul>
+        </div>
+    </aside>
+</div>
+

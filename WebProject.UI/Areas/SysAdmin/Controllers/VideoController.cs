@@ -53,6 +53,17 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             return View(model);
         }
 
+        public ActionResult ListByCategory(int id)
+        {
+            VideoVM model = new VideoVM()
+            {
+                Videos = _VideoService.GetActive().Where(x => x.VideoCategoryID == id).ToList(),
+                Categories=_VideoCategoryService.GetActive(),
+                CategoryName = _VideoCategoryService.GetByID(id).Name,
+            };
+            return View(model);
+        }
+
         public ActionResult Delete(int id)
         {
             Video Video = _VideoService.GetByID(id);
