@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<WebProject.Data.ORM.Entity.Video>
+@foreach (var item in Model)
+{
+    <video src="@item.Url" width="640px" height="480px">
+    </video>
+
+}  

@@ -284,6 +284,7 @@
     <Content Include="Areas\SysAdmin\Views\VideoCategory\List.cshtml" />
     <Content Include="Areas\SysAdmin\Views\VideoCategory\Update.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Video\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Video\List.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
