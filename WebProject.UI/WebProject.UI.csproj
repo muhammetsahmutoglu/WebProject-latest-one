@@ -278,6 +278,10 @@
     <Content Include="Areas\SysAdmin\Views\Comment\Add.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Comment\List.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Comment\Update.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Contract\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\VideoCategory\Add.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\VideoCategory\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\VideoCategory\Update.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -290,12 +294,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\SysAdmin\Views\Contract\" />
     <Folder Include="Areas\SysAdmin\Views\ProjectCategory\" />
     <Folder Include="Areas\SysAdmin\Views\Project\" />
     <Folder Include="Areas\SysAdmin\Views\Reference\" />
     <Folder Include="Areas\SysAdmin\Views\Slider\" />
-    <Folder Include="Areas\SysAdmin\Views\VideoCategory\" />
     <Folder Include="Areas\SysAdmin\Views\Video\" />
   </ItemGroup>
   <ItemGroup>

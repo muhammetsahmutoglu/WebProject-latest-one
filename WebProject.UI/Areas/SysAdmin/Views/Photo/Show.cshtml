@@ -35,18 +35,19 @@
                 <ul class="latest-posts">
                     @foreach (var item in Model.Photos)
                     {
-                        <li>
-                            <div class="post-thumb">
-                                @{
-                                    var base64a = Convert.ToBase64String(item.Url);
-                                    var imgsrc1 = string.Format("data:image/jpg;base64,{0}", base64a);                                    
-                                }
-                                <a href="/SysAdmin/Photo/Show/@item.ID">
-                                    <img class="img-fluid" src="@imgsrc1" alt="">
-                                </a>
-                                <p>@item.User.UserName</p>
-                            </div>                            
-                        </li>
+                    <li>
+                        <p>@item.User.UserName tarafından eklendi.</p>
+                        <div class="post-thumb">
+                            @{
+                                var base64a = Convert.ToBase64String(item.Url);
+                                var imgsrc1 = string.Format("data:image/jpg;base64,{0}", base64a);
+                            }
+                            <a href="/SysAdmin/Photo/Show/@item.ID">
+                                <img class="img-fluid" src="@imgsrc1" alt="">
+
+                            </a>
+                        </div>
+                    </li>
                     }
                 </ul>
             </div>
