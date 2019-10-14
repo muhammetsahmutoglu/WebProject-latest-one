@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebProject.BLL.Option;
 using WebProject.Data.ORM.Entity;
 using WebProject.UI.Areas.SysAdmin.Models.DTO;
+using WebProject.UI.Areas.SysAdmin.Models.VM;
 
 namespace WebProject.UI.Areas.SysAdmin.Controllers
 {
@@ -13,20 +15,31 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
     {
         UserService _UserService;
         VideoService _VideoService;
+        VideoCategoryService _VideoCategoryService;
         public VideoController()
         {
             _UserService = new UserService();
             _VideoService = new VideoService();
+            _VideoCategoryService = new VideoCategoryService();
         }
         public ActionResult Add()
         {
-            return View();
+            VideoVM model = new VideoVM()
+            {
+                Categories = _VideoCategoryService.GetActive(),
+            };
+            return View(model);
         }
         [HttpPost]
-        public ActionResult Add(Video _Video)
+        public ActionResult Add(VideoVM _VideoVM, HttpPostedFileBase videoFile)
         {
-            _Video.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
-            _VideoService.Add(_Video);
+            string fileName = Path.GetFileName(videoFile.FileName);
+            videoFile.SaveAs(Server.MapPath("~/Content/VideoFiles/" + fileName));
+            _VideoVM.Video.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
+            _VideoVM.Video.Url = "~/VideoFileUpload/" + fileName;
+            _VideoVM.Video.Name = videoFile.FileName;
+            _VideoVM.Video.VideoCategoryID = _VideoCategoryService.GetByDefault(x => x.Name == _VideoVM.CategoryName).ID;
+            _VideoService.Add(_VideoVM.Video);
             return Redirect("/SysAdmin/Video/List");
         }
 
