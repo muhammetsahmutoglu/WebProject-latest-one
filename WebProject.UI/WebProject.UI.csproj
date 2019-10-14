@@ -168,6 +168,12 @@
     <Content Include="Content\plugins\summernote\dist\summernote-bs4.css" />
     <Content Include="Content\plugins\summernote\dist\summernote-bs4.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\SysAdmin\Views\Video\List.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -284,10 +290,11 @@
     <Content Include="Areas\SysAdmin\Views\VideoCategory\List.cshtml" />
     <Content Include="Areas\SysAdmin\Views\VideoCategory\Update.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Video\Add.cshtml" />
-    <Content Include="Areas\SysAdmin\Views\Video\List.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Account\Login.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

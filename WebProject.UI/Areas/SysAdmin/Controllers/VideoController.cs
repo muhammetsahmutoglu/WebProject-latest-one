@@ -36,7 +36,7 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
             string fileName = Path.GetFileName(videoFile.FileName);
             videoFile.SaveAs(Server.MapPath("~/Content/VideoFiles/" + fileName));
             _VideoVM.Video.UserID = _UserService.GetByDefault(x => x.UserName == User.Identity.Name).ID;
-            _VideoVM.Video.Url = "~/VideoFileUpload/" + fileName;
+            _VideoVM.Video.Url = "~/Content/VideoFiles/" + fileName;
             _VideoVM.Video.Name = videoFile.FileName;
             _VideoVM.Video.VideoCategoryID = _VideoCategoryService.GetByDefault(x => x.Name == _VideoVM.CategoryName).ID;
             _VideoService.Add(_VideoVM.Video);
@@ -45,8 +45,12 @@ namespace WebProject.UI.Areas.SysAdmin.Controllers
 
         public ActionResult List()
         {
-            List<Video> Videos = _VideoService.GetActive().Take(12).OrderByDescending(x => x.AddDate).ToList();
-            return View(Videos);
+            VideoVM model = new VideoVM()
+            {
+                Videos = _VideoService.GetActive(),
+                Categories = _VideoCategoryService.GetActive()
+            };
+            return View(model);
         }
 
         public ActionResult Delete(int id)
