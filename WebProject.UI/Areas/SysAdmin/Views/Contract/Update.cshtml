@@ -1,38 +1,39 @@
 ﻿
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "Update";
     Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
 }
-
+@model WebProject.UI.Areas.SysAdmin.Models.DTO.ContractDTO
 <div class="row">
     <div class="col-lg-8 offset-lg-2">
-        <h4 class="page-title">Sözleşme Ekleme</h4>
+        <h4 class="page-title">Sözleşme Güncelle</h4>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-8 offset-lg-2">
-        <form action="/SysAdmin/Contract/Add" role="form" enctype="multipart/form-data" method="post">
+        <form action="/SysAdmin/Contract/Update" role="form" enctype="multipart/form-data" method="post">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-control-file">
                         <label>Sözleşme Adresi <span class="text-danger">*</span></label>
-                        <input  name="ContractUrl" required="" class="form-control" type="text">
+                        <input name="ContractUrl" value="@Model.ContractUrl" required="" class="form-control" type="text">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Sözleşme Adı <span class="text-danger">*</span></label>
-                        <input name="Name" required="" class="form-control" type="text">
+                        <input name="Name" value="@Model.Name" required="" class="form-control" type="text">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Açıklama</label>
-                        <input name="Explanation" required="" class="form-control" type="text">
+                        <input name="Explanation" value="@Model.Explanation" required="" class="form-control" type="text">
                     </div>
                 </div>
             </div>
             <div class="m-t-20 text-center">
+                <input name="ID" value="@Model.ID" style="visibility:hidden" />
                 <button class="btn btn-primary submit-btn">Ekle</button>
             </div>
         </form>

@@ -170,6 +170,8 @@
     <Content Include="Global.asax" />
     <Content Include="Areas\SysAdmin\Views\Video\List.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Video\ListByCategory.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Contract\List.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\Contract\Update.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

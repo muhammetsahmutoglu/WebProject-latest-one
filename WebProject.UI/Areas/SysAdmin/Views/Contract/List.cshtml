@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<WebProject.Data.ORM.Entity.Contract>
+<div class="row">
+    <div class="col-sm-4 col-3">
+        <h4 class="page-title">Sözleşmeler</h4>
+    </div>
+    <div class="col-sm-8 col-9 text-right m-b-20">
+        <a href="/SysAdmin/Contract/Add" class="btn btn-primary float-right btn-rounded"><i class="fa fa-plus"></i> Sözleşme Ekle</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table table-striped custom-table">
+                <thead>
+                    <tr>
+                        
+                        <th>Sözleşme Adı</th>
+                        <th>Açıklama</th>
+                        <th style="min-width: 110px;">Adres</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            
+                            <td><a href="/SysAdmin/Contract/Show/@item.ID">@item.Name</a></td>
+                            <td><a href="/SysAdmin/Contract/Show/@item.ID">@item.Explanation</a></td>
+                            <td><a href="/SysAdmin/Contract/Show/@item.ID">@item.ContractUrl</a></td>                            
+                            <td class="text-right">
+                                <div class="dropdown dropdown-action">
+                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(23px, 26px, 0px);" x-out-of-boundaries="">
+                                        <a class="dropdown-item" href="/SysAdmin/Contract/Update/@item.ID"><i class="fa fa-pencil m-r-5"></i> Düzenle</a>
+                                        <a class="dropdown-item" href="/SysAdmin/Contract/Delete/@item.ID" data-toggle="modal"><i class="fa fa-trash-o m-r-5"></i> Sil</a>
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
