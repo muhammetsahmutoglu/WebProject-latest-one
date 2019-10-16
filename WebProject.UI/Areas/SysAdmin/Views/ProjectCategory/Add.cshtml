@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/SysAdmin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <h4 class="page-title">Proje Kategorisi Ekleme</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <form action="/SysAdmin/ProjectCategory/Add" role="form" enctype="multipart/form-data" method="post">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Kategori Adı <span class="text-danger">*</span></label>
+                        <input name="Name" required="" class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <input name="Explanation" required="" class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="m-t-20 text-center">
+                <button class="btn btn-primary submit-btn">Ekle</button>
+            </div>
+        </form>
+    </div>
+</div>
+
